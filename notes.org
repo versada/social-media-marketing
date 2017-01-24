@@ -1,0 +1,24 @@
+* Social Media Marketing
+
+The project's aim is to create Odoo integrated tools for assisting in social media marketing activities.
+
+
+** Promotional Campaigns
+
+A common marketing activity is to create promotional campaings on various social media services to support some idea, product, etc. It would be usefull for marketers to collect the data on how "successfull" their campaign is in real time. Additionaly a promotional campaign could have some kind of a reward system that includes users who respond to it and are "best" by some metrics and shows this data publicly. The campaign should run/collect data for a defined period. 
+
+For the purposes of the hackathon we will consider making a solution that integrates with *Twitter* only.
+
+*** Twitter
+
+Aim: Create a solution that enables defining a campaign with hashtags, example #ILoveVersadaHackathon and collects data with tweets that contain it for a defined period. Based on the collected data it generates statistics, example total tweets, top 10 most "active" tweets, etc. The campaing should have its own website where public users can check its purpose and public metrics. 
+
+**** Draft Solution
+
+Basic outline: Fetch tweets using tweeter's [[https://dev.twitter.com/streaming/public][streaming API]], insert them in a db relation, have user defined SQL queries that operate on it and display the data on the website.
+
+Use [[https://github.com/versada/twitter-streamer][twitter-streamer]], make a new script twitter-streamer-putter that will read from stdin and save them in a predefined db relation.
+Make an Odoo module that will give possibilty for user's to create twitter campaings by defining SQL queries for the metrics they want which will be executed on the entered relation in the campaign. It should be possible to control which metrics are for public users and show them on the campaing webpage.   
+
+
+
