@@ -17,7 +17,13 @@ Aim: Create a solution that enables defining a campaign with hashtags, example #
 
 Basic outline: Fetch tweets using tweeter's [[https://dev.twitter.com/streaming/public][streaming API]], insert them in a db relation, have user defined SQL queries that operate on it and display the data on the website.
 
-Use [[https://github.com/versada/twitter-streamer][twitter-streamer]], make a new script twitter-streamer-putter that will read from stdin and save them in a predefined db relation.
+Write streaming / saving service in elixir:
+[[https://github.com/parroty/extwitter][extwitter]] 
+[[https://github.com/alvises/elixir-twitter-genstage][elixir-twitter-genstage]]
+
+with HTTP interface using:
+[[https://github.com/elixir-lang/plug][plug]]
+ 
 Make an Odoo module that will give possibilty for user's to create twitter campaings by defining SQL queries for the metrics they want which will be executed on the entered relation in the campaign. It should be possible to control which metrics are for public users and show them on the campaing webpage.   
 
 

@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+  odoo:
+    image: hbee/l10n-macedonia:9.0.0.2
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    links:
+      - db
+    volumes:
+      - attachments:/home/odoo/.local
+  tweetie_store:
+    image: elixir:1.4
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - "8000:8000"
+  db:
+    image: hbee/odoo-pgsql:9.5.0
+    volumes:
+      - data:/var/lib/postgresql/data
+
+volumes:
+  attachments:
+    driver: local
+  data:
+    driver: local
