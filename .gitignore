@@ -167,7 +167,6 @@ develop-eggs/
 downloads/
 eggs/
 .eggs/
-lib/
 lib64/
 parts/
 sdist/
@@ -252,3 +251,7 @@ erl_crash.dump
 *.beam
 
 # End of https://www.gitignore.io/api/vim,eclipse,sublimetext,emacs,python,elixir
+
+/tweetie_store/config/twitter_secret.exs
+/tweetie_store/deps
+/tweetie_store/_build
