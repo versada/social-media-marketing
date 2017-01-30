@@ -4,3 +4,6 @@ services:
   odoo:
     volumes:
       - './addons:/home/odoo/addons_l10n-macedonia'
+  tweetie_store:
+    volumes:
+      - './tweetie_store:/tweetie_store'
