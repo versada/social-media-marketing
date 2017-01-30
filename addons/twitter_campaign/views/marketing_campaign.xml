@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    <record id="view_marketing_campaign_form" model="ir.ui.view">
+        <field name="model">marketing.campaign</field>
+        <field name="inherit_id" ref="marketing_campaign.view_marketing_campaign_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='unique_field_id']" position="after">
+                <field name="twitter_tag"/>
+            </xpath>
+
+            <xpath expr="//field[@name='activity_ids']" position="after">
+                <notebook>
+                    <page string="Twitter Filters">
+                        <field name="twitter_filters" mode="tree,kanban">
+                            <form string="Twitter Filters">
+                                <div class="oe_title">
+                                    <label for="name" class="oe_edit_only"/>
+                                    <h1><field name="name" placeholder="Filter Name"/></h1>
+                                </div>
+                                <group>
+                                    <group>
+                                        <field name="filter_type"/>
+                                        <field name="campaign_id"/>
+                                    </group>
+                                    <group>
+                                        <field name="filter_by"/>
+                                    </group>
+                                </group>
+                            </form>
+                            <tree string="Twitter Filters">
+                                <field name="name"/>
+                                <field name="filter_type"/>
+                                <field name="campaign_id"/>
+                                <field name="filter_by"/>         
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+    </data>
+</odoo>

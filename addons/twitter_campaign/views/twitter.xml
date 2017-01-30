@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+    <record id="view_twitter_tweet_form" model="ir.ui.view">
+        <field name="name">twitter.tweet.form</field>
+        <field name="model">twitter.tweet</field>
+        <field name="arch" type="xml">
+            <form string="Twitter Tweet">
+            <sheet string="Tweet">
+                <div class="oe_title">
+                    <h3><field name="content"/></h3>
+                </div>
+                <group>
+                    <group>
+                        <field name="user_screen_name"/>
+                        <field name="campaign_id"/>
+                        <field name="created_at"/>
+                    </group>
+                    <group>
+                        <field name="hashtag"/>
+                        <field name="favorite_count"/>
+                        <field name="retweet_count"/>
+                        <field name="source"/>                 
+                    </group>
+                </group>
+            </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_twitter_tweet_tree">
+        <field name="name">twitter.tweet.tree</field>
+        <field name="model">twitter.tweet</field>
+        <field name="arch" type="xml">
+            <tree string="Tweets">
+                <field name="campaign_id"/>
+                <field name="user_screen_name"/>             
+                <field name="favorite_count"/>
+                <field name="retweet_count"/>
+                <field name="hashtag"/>
+                <field name="created_at"/>         
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_twitter_tweet_search" model="ir.ui.view">
+        <field name="name">twitter.tweet.search</field>
+        <field name="model">twitter.tweet</field>
+        <field name="arch" type="xml">
+            <search string="Tweets">
+                <field string="Tweet" name="content"/>
+                <field string="Campaign" name="campaign_id"/>
+                <field string="Hashtag" name="hashtag"/>
+                <group expand="0" string="Group By">
+                    <filter string="Campaign" name="Campaign" context="{'group_by':'campaign_id'}"/>
+                    <filter string="Hashtag" name="Hashtag" context="{'group_by':'hashtag'}"/>                 
+                    <filter string="Favorites" name="Favorites" context="{'group_by':'favorite_count'}"/>
+                    <filter string="Retweets" name="Retweets" context="{'group_by':'retweet_count'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_twitter_tweet_form">
+        <field name="name">Tweets</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">twitter.tweet</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_twitter_tweet_tree"/>
+        <field name="search_view_id" ref="view_twitter_tweet_search"/>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            All tweets related with your hashtags will be shown here. At the moment there aren't any.
+          </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_twitter_root" parent="marketing_campaign.menu_marketing_campaign_campaigns" action="action_twitter_tweet_form" sequence="3"/>
+    </data>
+</odoo>

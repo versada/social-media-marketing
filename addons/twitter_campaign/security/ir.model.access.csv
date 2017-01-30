@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_twitter_tweet_user,twitter.tweet.user,twitter_campaign.model_twitter_tweet,base.group_user,1,0,0,0
+access_twitter_filter_user,twitter.filter.user,twitter_campaign.model_twitter_filter,base.group_user,1,0,0,0
+access_twitter_filter_manager,twitter.filter.manager,twitter_campaign.model_twitter_filter,marketing.group_lead_automation_manager,1,1,1,1
